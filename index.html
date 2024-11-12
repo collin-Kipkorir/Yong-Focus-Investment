@@ -3,146 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Young Focus Furnitures - Crafting quality furniture for modern living spaces.">
     <title>Young Focus Furnitures</title>
-    <link href="https://fonts.googleapis.com/css2?family=Modern+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .nav-links a:hover {
+            color: #5F9EA0;
+            transform: scale(1.05);
+        }
+        .hero-section {
+            background-image: url('images/young.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .section-title {
+            color: #5D4037;
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        /* Custom styles for testimonials */
+        .testimonial-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        /* Animation for fading in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s forwards;
+        }
+    </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="sticky-nav">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="#home">Logo</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#collections">Collections</a></li>
-                <li><a href="#about-us">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<body class="bg-white text-[#333333]">
+<!-- Navigation -->
+<nav class="bg-white shadow-lg fixed top-0 w-full z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <a href="#home" class="text-[#5D4037] text-2xl font-bold transition transform hover:scale-105">Young Focus</a>
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="text-[#5D4037] hover:bg-[#A5D6A7] px-4 py-2 rounded-md transition">Home</a>
+            <a href="#collections" class="text-[#5D4037] hover:bg-[#A5D6A7] px-4 py-2 rounded-md transition">Collections</a>
+            <a href="#about-us" class="text-[#5D4037] hover:bg-[#A5D6A7] px-4 py-2 rounded-md transition">About Us</a>
+            <a href="#contact" class="text-[#5D4037] hover:bg-[#A5D6A7] px-4 py-2 rounded-md transition">Contact</a>
         </div>
-    </nav>
-<!-- Hero Banner -->
-<div class="hero-section">
-    <div class="hero-content">
-        <h1>Crafting Comfort for Modern Spaces</h1>
-        <p>Discover our exquisite range of furniture designed to elevate your living experience.</p>
-        <div class="hero-buttons">
-            <a href="#collections" class="btn btn-primary">Our Collections</a>
-            <a href="#about-us" class="btn btn-secondary">Learn More</a>
+        <div class="md:hidden cursor-pointer">
+            <button id="hamburger" class="flex flex-col items-start space-y-1">
+                <div class="block w-8 h-1 bg-black"></div> 
+                <div class="block w-8 h-1 bg-black"></div> 
+                <div class="block w-8 h-1 bg-black"></div> 
+            </button>
         </div>
     </div>
+    <div id="mobile-menu" class="md:hidden hidden bg-[#5D4037] text-[#F5F5DC] py-4 space-y-4">
+        <a href="#home" class="block text-center hover:bg-[#A5D6A7] px-4 py-2 rounded-md transition">Home</a>
+        <a href="#collections" class="block text-center hover:bg-[#A5D6A7] px-4 py-2 rounded-md transition">Collections</a>
+        <a href="#about-us" class="block text-center hover:bg-[#A5D6A7] px-4 py-2 rounded-md transition">About Us</a>
+        <a href="#contact" class="block text-center hover:bg-[#A5D6A7] px-4 py-2 rounded-md transition">Contact</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section h-screen relative">
+    <div class="hero-overlay absolute inset-0 z-10"></div>
+    <div class="container mx-auto h-full flex flex-col justify-center items-center text-center z-20 relative">
+        <h1 class="text-5xl font-bold mb-4">Crafting Comfort for Modern Spaces</h1>
+        <p class="text-lg mb-6">Discover our exquisite range of furniture designed to elevate your living experience.</p>
+        <div class="flex space-x-4">
+            <a href="#collections" class="border border-[#E57373] text-[#F5F5DC] py-3 px-6 rounded-lg hover:bg-[#F5F5DC] hover:text-[#5D4037] transition duration-300 transform hover:scale-105"">Our Collections</a>
+            <a href="#about-us" class="border border-[#E57373] text-[#F5F5DC] py-3 px-6 rounded-lg hover:bg-[#F5F5DC] hover:text-[#5D4037] transition duration-300 transform hover:scale-105">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Product Categories Section -->
+<section id="collections" class="py-12 bg-white">
+    <div class="container mx-auto text-center">
+        <h3 class="section-title text-3xl font-bold mb-6">Our Collections</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="category-card bg-[#F3F4F6] p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 ">
+                <h4 class="font-semibold">Living Room</h4>
+                <img src="images/sofa.png" alt="Living Room" class="w-full h-60 object-cover rounded-lg mb-4">
+                <p>Explore our stylish living room furniture.</p>
+                <a href="#contact" class="text-[#E57373]">Contact for Details</a>
+            </div>
+            <div class="category-card bg-[#F3F4F6] p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <h4 class="font-semibold">Bedroom</h4>
+                <img src="images/bedroom.jpg" alt="Bedroom" class="w-full h-60 object-cover rounded-lg mb-4">
+                <p>Discover our cozy bedroom collections.</p>
+                <a href="#contact" class="text-[#E57373]">Contact for Details</a>
+            </div>
+            <div class="category-card bg-[#F3F4F6] p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <h4 class="font-semibold">Office</h4>
+                <img src="images/office.jpg" alt="Office" class="w-full h-60 object-cover rounded-lg mb-4">
+                <p>Find the perfect office furniture for your workspace.</p>
+                <a href="#contact" class="text-[#E57373]">Contact for Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us -->
+<section id="about-us" class="py-16 bg-gradient-to-r from-[#F3F4F6] to-[#E2E8F0] relative overflow-hidden">
+    <div class="absolute inset-0 bg-opacity-10 bg-[#5D4037] animate-pulse"></div> <!-- Subtle background animation -->
+    <div class="container mx-auto flex flex-col md:flex-row items-center gap-8 px-4 relative z-10">
+       <!-- Image Carousel -->
+<div class="md:w-1/2 flex justify-center">
+    <div id="carousel" class="relative w-full max-w-lg overflow-hidden">
+        <div class="carousel-inner transition-transform duration-500 ease-in-out">
+            <img src="images/young.jpg" alt="Workshop" class="rounded-lg shadow-xl w-full h-96 object-cover" />
+            <img src="images/sofa1.jpeg" alt="Workshop Interior" class="rounded-lg shadow-xl w-full h-96 object-cover hidden" />
+            <img src="images/sofa2.jpg" alt="Craftsmanship" class="rounded-lg shadow-xl w-full h-96 object-cover hidden" />
+        </div>
+        <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg" onclick="prevSlide()">❮</button>
+        <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg" onclick="nextSlide()">❯</button>
+    </div>
 </div>
-<h2>Featured Collections</h2>
-    <!-- Featured Collections -->
-    <section id="collections" class="featured-collections">
+
         
-      
-        <div class="collection">
-            <img src="https://ekbotefurniture.com/wp-content/uploads/2023/11/COMPACTWOODENDININGTABLESET.jpg" alt="Dining Table">
-            <h3>Dining Table</h3>
-            <p>Explore our range of elegant and functional dining tables.</p>
+        <!-- Text Section -->
+        <div class="md:w-1/2 text-center md:text-left">
+            <h2 class="section-title text-3xl font-bold mb-4 text-[#5D4037]">Crafting Comfort with Quality</h2>
+            <p class="text-lg mb-6">At Young Focus Furnitures, we blend craftsmanship with modern design to create furniture that suits your lifestyle.</p>
+            <div class="flex space-x-4 mb-6">
+                <a href="#contact" class="border border-[#E57373] text-[#F5F5DC] py-3 px-6 rounded-lg hover:bg-[#F5F5DC] hover:text-[#5D4037] transition duration-300 transform hover:scale-105">Get in Touch</a>
+            
+            </div>
+           
         </div>
-        <div class="collection">
-            <img src="https://rukminim2.flixcart.com/image/850/1000/jjlqxe80/sofa-set/j/m/g/beige-jute-clara-multi-3-1-1-look-in-furniture-beige-original-imaf6nguebhzvmwa.jpeg?q=90&crop=false" alt="Sofa">
-            <h3>Sofa</h3>
-            <p>Discover our comfortable and stylish sofas for your living room.</p>
-        </div>
-        <div class="collection">
-            <img src="https://rukminim2.flixcart.com/image/850/1000/jjlqxe80/sofa-set/j/m/g/beige-jute-clara-multi-3-1-1-look-in-furniture-beige-original-imaf6nguebhzvmwa.jpeg?q=90&crop=false" alt="Sofa">
-            <h3>Sofa</h3>
-            <p>Discover our comfortable and stylish sofas for your living room.</p>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Us -->
-    <section id="about-us" class="about-us">
-        <h2>About Young Focus Furnitures</h2>
-        <p>Our story, values, and commitment to craftsmanship.</p>
-        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Workshop">
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
-        <h2>What Our Clients Say</h2>
-        <div class="testimonial">
-            <p>"Amazing craftsmanship and quality!"</p>
-            <cite>- Happy Customer</cite>
+<!-- Why Choose Us Section -->
+<section id="why-choose-us" class="py-16 bg-gray-50">
+    <div class="container mx-auto text-center">
+        <h3 class="text-4xl font-bold text-gray-800 mb-10">Why Choose Us?</h3>
+        <div class="flex flex-wrap justify-center gap-8">
+            <!-- Feature Card 1 -->
+            <div class="feature-card bg-white shadow-md rounded-lg p-8 max-w-xs w-full transition-transform transform hover:scale-105">
+                <div class="text-blue-600 mx-auto mb-4">
+                    <!-- Quality Icon (using FontAwesome or similar) -->
+                    <i class="fas fa-gem text-5xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Quality Craftsmanship</h4>
+                <p class="text-gray-600">Every piece of furniture is crafted with the highest quality materials to ensure durability and beauty.</p>
+            </div>
+            <!-- Feature Card 2 -->
+            <div class="feature-card bg-white shadow-md rounded-lg p-8 max-w-xs w-full transition-transform transform hover:scale-105">
+                <div class="text-green-600 mx-auto mb-4">
+                    <!-- Sustainability Icon (using FontAwesome or similar) -->
+                    <i class="fas fa-leaf text-5xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Sustainable Practices</h4>
+                <p class="text-gray-600">We prioritize environmentally friendly and sustainable processes to minimize our impact on the planet.</p>
+            </div>
+            <!-- Feature Card 3 -->
+            <div class="feature-card bg-white shadow-md rounded-lg p-8 max-w-xs w-full transition-transform transform hover:scale-105">
+                <div class="text-yellow-600 mx-auto mb-4">
+                    <!-- Customer Service Icon (using FontAwesome or similar) -->
+                    <i class="fas fa-hands-helping text-5xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Exceptional Service</h4>
+                <p class="text-gray-600">Our customer service team is dedicated to helping you at every step, ensuring a seamless experience.</p>
+            </div>
         </div>
-    </section>
-
-    <!-- Product Showcase -->
-    <section id="product-showcase" class="product-showcase">
-        <h2>Product Showcase</h2>
-        <div class="product-gallery">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Product Image" class="zoomable">
+    </div>
+</section>
+<!-- Client Testimonials Section -->
+<section id="client-testimonials" class="py-5 bg-light">
+    <div class="container mx-auto text-center px-6">
+        <h3 class="display-4 font-weight-bold text-black mb-4">What Our Clients Say</h3>
+        <div class="row justify-content-center">
+            <!-- Testimonial Card 1 -->
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card testimonial-card shadow-lg rounded-lg p-4 transition-transform transform hover:scale-105 hover:shadow-xl">
+                    <div class="card-body">
+                        <blockquote class="blockquote">
+                            <p class="text-dark font-italic">"The furniture from Young Focus is exceptional! I am thrilled with my new living room setup!"</p>
+                        </blockquote>
+                        <p class="font-weight-bold text-dark mt-4">- Sarah O.</p>
+                        <div class="text-warning">
+                            <!-- Star Rating -->
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial Card 2 -->
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card testimonial-card shadow-lg rounded-lg p-4 transition-transform transform hover:scale-105 hover:shadow-xl">
+                    <div class="card-body">
+                        <blockquote class="blockquote">
+                            <p class="text-dark font-italic">"Excellent quality, great design, and fast delivery. Highly recommend!"</p>
+                        </blockquote>
+                        <p class="font-weight-bold text-dark mt-4">- James K.</p>
+                        <div class="text-warning">
+                            <!-- Star Rating -->
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial Card 3 -->
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card testimonial-card shadow-lg rounded-lg p-4 transition-transform transform hover:scale-105 hover:shadow-xl">
+                    <div class="card-body">
+                        <blockquote class="blockquote">
+                            <p class="text-dark font-italic">"I absolutely love my new dining table. It’s the centerpiece of my home!"</p>
+                        </blockquote>
+                        <p class="font-weight-bold text-dark mt-4">- Mary L.</p>
+                        <div class="text-warning">
+                            <!-- Star Rating -->
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="product-details">
-            <h3>Product Name</h3>
-            <p>Material: Sustainably sourced wood</p>
-            <p>Dimensions: 200x100x75 cm</p>
+    </div>
+</section>
+
+
+<!-- Gallery Section -->
+<section id="gallery" class="py-12 bg-[#F3F4F6]">
+    <div class="container mx-auto text-center">
+        <h3 class="section-title text-3xl font-bold mb-6">Our Gallery</h3>
+        <p class="text-lg mb-8">Explore our exquisite range of furniture crafted with care and precision.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="gallery-item overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <img src="images/sofa1.jpeg" alt="Furniture 1" class="w-full h-64 object-cover">
+            </div>
+            <div class="gallery-item overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <img src="images/sofa.png" alt="Furniture 2" class="w-full h-64 object-cover">
+            </div>
+            <div class="gallery-item overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <img src="images/sofa2.jpg" alt="Furniture 3" class="w-full h-64 object-cover">
+            </div>
+            <div class="gallery-item overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <img src="images/sofa.png" alt="Furniture 4" class="w-full h-64 object-cover">
+            </div>
+            <div class="gallery-item overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <img src="images/sofa2.jpg" alt="Furniture 5" class="w-full h-64 object-cover">
+            </div>
+            <div class="gallery-item overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <img src="images/sofa1.jpeg" alt="Furniture 6" class="w-full h-64 object-cover">
+            </div>
         </div>
-   
-    </section>
+    </div>
+</section>
 
-    <!-- Inspiration Gallery -->
-    <section id="inspiration-gallery" class="inspiration-gallery">
-        <h2>Inspiration Gallery</h2>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Styled Room">
-            <p>Pair a natural wood table with neutral tones for a warm and inviting living room.</p>
-        </div>
-    </section>
+<!-- Contact Section -->
+<section id="contact" class="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
+    <div class="container mx-auto text-center">
+        <h2 class="section-title text-4xl font-semibold mb-6 text-gray-800 tracking-wide">Connect with Us</h2>
+        <p class="text-lg text-gray-700 mb-8">Ready to bring quality and style to your home? Reach out for a consultation.</p>
+        <a href="mailto:info@youngfocusfurnitures.com" class="bg-blue-600 text-white py-3 px-8 rounded-full shadow-lg hover:bg-blue-500 transition duration-300 transform hover:-translate-y-1">Contact Us</a>
+    </div>
+</section>
 
-    <!-- Contact and Store Locator -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form id="inquiry-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
-            <button type="submit">Inquire</button>
-        </form>
-        <div id="store-locator">
-            <h3>Our Locations</h3>
-            <div id="map"></div>
-        </div>
-    </section>
+<!-- Footer -->
+<footer class="bg-gray-800 py-6 text-center text-gray-200">
+    <p>&copy; 2024 Young Focus Furnitures. All rights reserved.</p>
+    <div class="flex justify-center space-x-4 mt-2">
+        <a href="https://facebook.com" class="hover:text-[#E57373]">Facebook</a>
+        <a href="https://instagram.com" class="hover:text-[#E57373]">Instagram</a>
+        <a href="https://twitter.com" class="hover:text-[#E57373]">Twitter</a>
+    </div>
+</footer>
 
-    <!-- Blog Section -->
-    <section id="blog" class="blog">
-        <h2>Latest Articles</h2>
-        <article>
-            <h3>Furniture Care Tips</h3>
-            <p>Learn how to maintain your furniture...</p>
-            <a href="blog-post-url">Read More</a>
-        </article>
-    </section>
+<script>
+      let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-inner img');
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <ul class="quick-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about-us">About</a></li>
-        </ul>
-        <div class="social-media">
-            <a href="facebook-url">Facebook</a>
-        </div>
-        <form id="newsletter-signup">
-            <label for="email">Subscribe to our newsletter:</label>
-            <input type="email" id="email" name="email" required>
-            <button type="submit">Sign Up</button>
-        </form>
-    </footer>
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('hidden', i !== index);
+        });
+    }
 
-    <script src="script.js"></script>
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Auto slide every 5 seconds
+    setInterval(nextSlide, 5000); // Change every 5 seconds
+
+    // Initialize the first slide
+    showSlide(currentSlide);
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    hamburger.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+    });
+
+    // JavaScript for animation on scroll
+    document.addEventListener("DOMContentLoaded", function() {
+        const cards = document.querySelectorAll('.testimonial-card');
+        cards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    });
+
+</script>
 </body>
 </html>
