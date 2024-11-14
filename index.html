@@ -24,16 +24,33 @@
             transform: scale(1.05);
         }
 
-/* Launch Animation for Hero Section */
+/* Default Hero Section for Desktop */
 .hero-section {
-    background-image: url('images/young.jpg');
+    background-image: url('images/young.jpg'); 
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat; /* Prevents duplication */
     color: #fff;
-    animation: fadeInUp 1s forwards, backgroundZoom 5s infinite alternate; /* Apply fade, slide-up and background zoom animation */
-    position: relative; /* Set position to relative for overlay */
-    overflow: hidden; /* Prevent overflow */
+    animation: fadeInUp 1s forwards, backgroundZoom 5s infinite alternate;
+    position: relative;
+    overflow: hidden;
 }
+
+/* Mobile Hero Section */
+@media (max-width: 768px) {
+    .hero-section {
+        background-image: url('images/bgr.jpg');
+        background-size: 100% 100%; /* Stretches image to fit mobile screen */
+        background-position: center;
+        background-repeat: no-repeat; /* Prevents duplication */
+        color: #fff;
+        animation: fadeInUp 1s forwards, backgroundZoom 5s infinite alternate;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+
 
 /* Frozen Background Effect */
 .hero-section::before {
@@ -193,6 +210,106 @@
         display: block;
     }
 }
+/* Bouncing Animation for the Button */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Animation for Showing 'Chat with us' Text */
+#chatText {
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Add bounce animation on hover */
+.fixed a:hover {
+    animation: bounce 0.6s;
+}
+
+/* Top Bar Background and Text */
+.top-bar {
+    background-color: #F8F9FA;
+    color: #2C3E50;
+    padding: 0.25rem 0;
+}
+
+/* Location Icon and Label */
+.top-bar .location-icon {
+    color: #2C3E50;
+}
+
+.top-bar .location-label {
+    font-weight: 500;
+    color: #2C3E50;
+}
+
+/* Location Links */
+.top-bar a.location-link {
+    color: #2C3E50;
+    transition: color 0.3s ease;
+}
+
+.top-bar a.location-link:hover {
+    color: #1E88E5; /* Vibrant blue on hover */
+}
+
+/* Open Notice Styles */
+.top-bar .open-notice {
+    color: #E67E22;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.top-bar .open-notice:hover {
+    color: #D35400; /* Darker orange on hover */
+}
+
+.top-bar .open-icon {
+    color: #E67E22;
+    animation: bounce 1s infinite;
+}
+
+/* Contact Link */
+.top-bar a.contact-link {
+    color: #2C3E50;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.top-bar a.contact-link:hover {
+    color: #1E88E5;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
 
     </style>
 </head>
@@ -201,27 +318,27 @@
     <!-- Navigation -->
     <nav class="bg-white shadow-lg fixed top-0 w-full z-50 transition-all duration-300">
 <!-- Top Bar for Locations and Contact Options -->
-<div class="top-bar bg-gray-100 text-gray-600 py-1">
+<div class="top-bar">
     <div class="container mx-auto flex justify-between items-center px-6">
         <!-- Locations -->
         <div class="flex space-x-2 items-center text-sm">
-            <span class="material-icons text-gray-600 text-sm">location_on</span>
-            <span class="font-medium">Locations:</span>
-            <a href="#" class="hover:text-gray-800">Chebown Centre, </a>
-            <a href="#" class="hover:text-gray-800">Kericho, </a>
-            <a href="#" class="hover:text-gray-800">Kenya</a>
+            <span class="material-icons location-icon text-sm">location_on</span>
+            <span class="location-label">Locations:</span>
+            <a href="#" class="location-link">Chebown Centre, </a>
+            <a href="#" class="location-link">Kericho, </a>
+            <a href="#" class="location-link">Kenya</a>
         </div>
 
-        <!-- Search, Hiring Notice, and Contact Icon -->
+        <!-- Open Notice and Contact Icon -->
         <div class="flex items-center space-x-2 text-sm">
             <!-- Open Notice -->
             <a href="#"
-                class="text-orange-500 font-medium hover:text-orange-600 flex items-center space-x-1 animate-pulse transition-all duration-300 ease-in-out">
-                <span class="material-icons text-orange-500 animate-bounce">circle</span>
+               class="open-notice">
+                <span class="material-icons open-icon">circle</span>
                 <span>We're Open</span>
             </a>
             <!-- Contact Icon -->
-            <a href="#contact" class="flex items-center hover:text-gray-800">
+            <a href="#contact" class="contact-link">
                 <span class="material-icons text-sm">contact_support</span>
                 <span class="ml-1">Contact</span>
             </a>
@@ -230,8 +347,6 @@
 </div>
 
 
-
-        <!-- Main Navigation Bar -->
         <!-- Main Navigation Bar -->
 <div class="container mx-auto flex justify-between items-center py-4 px-6 "> <!-- Added mt-4 for top margin -->
             <!-- Logo -->
@@ -286,13 +401,12 @@
     <!-- Styles for Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Hero Section -->
+    <!-- Hero Section -->
 <section class="hero-section h-screen relative mt-8">
     <div class="hero-overlay absolute inset-0 z-10"></div>
     <div class="container mx-auto h-full flex flex-col justify-center items-center text-center z-20 relative">
         <h2 class="text-4xl font-bold mb-4 hero-heading">Crafting Comfort for Modern Spaces</h2>
-        <p class="text-lg mb-6 hero-description">Discover our exquisite range of furniture designed to elevate your living
-            experience.</p>
+        <p class="text-lg mb-6 hero-description">Discover our exquisite range of furniture designed to elevate your living experience.</p>
         <div class="flex space-x-4 hero-buttons">
             <a href="#collections"
                 class="border border-[#E57373] text-[#F5F5DC] py-3 px-6 rounded-lg hover:bg-[#F5F5DC] hover:text-[#5D4037] transition duration-300 transform hover:scale-105">
@@ -303,6 +417,9 @@
                 Learn More
             </a>
         </div>
+    </div>
+    <div class="scroll-indicator absolute bottom-5 text-[#F5F5DC] text-xl animate-bounce">
+        ↓
     </div>
 </section>
 
@@ -593,12 +710,18 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
+   <!-- Floating WhatsApp Button -->
+<div class="fixed bottom-5 right-5 flex items-center space-x-2">
+    <span id="chatText"
+        class="bg-green-500 text-white px-3 py-2 rounded-lg opacity-0 transition-opacity duration-500 ease-in-out mr-2">
+        Chat with us
+    </span>
     <a href="https://wa.me/254720672146"
-        class="fixed bottom-5 right-5 bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition duration-300"
+        class="bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition transform duration-300 ease-in-out hover:scale-110"
         target="_blank" title="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp text-2xl"></i>
     </a>
+</div>
 
     <!-- Include Font Awesome for WhatsApp Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
