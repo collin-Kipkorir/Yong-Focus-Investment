@@ -9,7 +9,7 @@
 
     <!-- Favicon -->
     <link rel="icon" href="images/armchair.png" type="image/x-icon"> <!-- Change the path accordingly -->
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
@@ -26,7 +26,7 @@
 
 /* Default Hero Section for Desktop */
 .hero-section {
-    background-image: url('images/young.jpg'); 
+    background-image: url('images/office.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; /* Prevents duplication */
@@ -56,6 +56,14 @@
     }
 }
 
+.text-4xl {
+    font-size: 2.5rem;  /* Ensures the title is larger */
+    font-family: 'Poppins', sans-serif;  /* Apply the stylish font */
+    font-weight: 700;  /* Makes the text bold */
+    letter-spacing: 1px;  /* Slightly increases space between letters for readability */
+    text-transform: uppercase;  /* Optional: Converts text to uppercase */
+    color: white;  /* Adjust color as needed */
+}
 
 
 /* Frozen Background Effect */
@@ -360,19 +368,17 @@
                 <img src="images/logo.png" alt="Young Focus" class="h-8">
             </a>
 
-            <!-- Desktop Links -->
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#home"
-                    class="text-gray-700 font-medium hover:text-[#A5D6A7] px-4 py-2 rounded-md transition duration-300 hover:bg-[#5D4037]/10">Home</a>
-                <a href="#collections"
-                    class="text-gray-700 font-medium hover:text-[#A5D6A7] px-4 py-2 rounded-md transition duration-300 hover:bg-[#5D4037]/10">Collections</a>
-                <a href="#about-us"
-                    class="text-gray-700 font-medium hover:text-[#A5D6A7] px-4 py-2 rounded-md transition duration-300 hover:bg-[#5D4037]/10">About
-                    Us</a>
-                <a href="#contact"
-                    class="text-gray-700 font-medium hover:text-[#A5D6A7] px-4 py-2 rounded-md transition duration-300 hover:bg-[#5D4037]/10">Contact</a>
-
-            </div>
+          <!-- Desktop Links -->
+<div class="hidden md:flex space-x-8 items-center">
+    <a href="#home"
+       class="text-gray-700 font-medium hover:text-[#2C3E50] px-4 py-2 rounded-md transition duration-300 hover:bg-[#5D4037]/10">Home</a>
+    <a href="#collections"
+       class="text-gray-700 font-medium hover:text-[#2C3E50] px-4 py-2 rounded-md transition duration-300 hover:bg-[#5D4037]/10">Collections</a>
+    <a href="#about-us"
+       class="text-gray-700 font-medium hover:text-[#2C3E50] px-4 py-2 rounded-md transition duration-300 hover:bg-[#5D4037]/10">About Us</a>
+    <a href="#contact"
+       class="text-gray-700 font-medium hover:text-[#2C3E50] px-4 py-2 rounded-md transition duration-300 hover:bg-[#5D4037]/10">Contact</a>
+</div>
 
             <!-- Mobile Menu Toggle -->
             <button id="hamburger" class="md:hidden flex items-center justify-center focus:outline-none">
@@ -480,10 +486,10 @@
 
             <!-- Text Section -->
             <div class="md:w-1/2 text-start md:text-left">
-                <h4 class="section-title text-3xl font-bold mb-4 text-[#5D4037]">Crafting Comfort with Quality</h4>
+                <h4 class="section-title text-3xl font-bold mb-6 px-10">Crafting Comfort with Quality</h4>
                 <p class="text-lg mb-6">At Young Focus Furnitures, we blend craftsmanship with modern design to create
                     furniture that suits your lifestyle.</p>
-                <div class="flex space-x-4 mb-6 items-center">
+                <div class="flex space-x-4 mb-3 items-center">
                     <a href="https://wa.me/254720672146"
                         class="flex items-center border border-[#25D355] text-[#F5F5DC] py-3 px-6 rounded-lg hover:bg-[#F5F5DC] hover:text-[#5D4037] transition duration-300 transform hover:scale-105 bg-gray-80"
                         target="_blank" title="Chat with us on WhatsApp">
@@ -496,9 +502,9 @@
     </section>
 
     <!-- Why Choose Us Section -->
-    <section id="why-choose-us" class="py-16 bg-gray-50">
+    <section id="why-choose-us" class="py-5 bg-gray-50">
         <div class="container mx-auto text-center">
-            <h4 class="text-4xl font-bold text-gray-800 mb-10">Why Choose Us?</h4>
+            <h4 class="section-title text-3xl font-bold mb-6">Why Choose Us?</h4>
             <div class="flex flex-wrap justify-center gap-8">
                 <!-- Feature Card 1 -->
                 <div
@@ -537,7 +543,7 @@
     <!-- Client Testimonials Section -->
     <section id="client-testimonials" class="py-5 bg-light">
         <div class="container mx-auto text-center px-6">
-            <h4 class="section-title text-4xl font-bold mb-6">What Our Clients Say</h4>
+            <h4 class="section-title text-3xl font-bold mb-6">What Our Clients Say</h4>
             <div class="row justify-content-center">
                 <!-- Testimonial Card 1 -->
                 <div class="col-12 col-md-4 mb-4">
@@ -600,8 +606,9 @@
     <!-- Gallery Section -->
     <section id="gallery" class="py-12 bg-[#F3F4F6]">
         <div class="container mx-auto text-center">
-            <h4 class="section-title text-4xl font-bold mb-6">Our Gallery</h>
-            <p class="text-lg mb-8">Explore our exquisite range of furniture crafted with care and precision.</p>
+            <h4 class="section-title text-3xl font-bold mb-6">Our Gallery</h4>
+<p class="text-lg mb-8 text-gray-600">Explore our exquisite range of furniture crafted with care and precision.</p>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <div
                     class="gallery-item overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105 mx-2 sm:mx-0">
@@ -659,7 +666,7 @@
 <!-- Contact Section -->
 <section id="contact" class="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
     <div class="container mx-auto text-center">
-        <h4 class="section-title text-4xl font-semibold mb-6 text-gray-800 tracking-wide">Connect with Us</h4>
+        <h4 class="section-title text-3xl font-bold mb-6">Connect with Us</h4>
         <p class="text-lg text-gray-700 mb-8">Ready to bring quality and style to your home? Reach out for a consultation.</p>
         <a href="mailto:info@youngfocusfurnitures.com?subject=Inquiry%20About%20Furniture&body=Hello,%0A%0AI%20would%20like%20to%20inquire%20about%20your%20furniture.%0A%0AThank%20you!"
            class="bg-blue-600 text-white py-3 px-8 rounded-full shadow-lg hover:bg-blue-500 transition duration-300 transform hover:-translate-y-1">Contact Us</a>
